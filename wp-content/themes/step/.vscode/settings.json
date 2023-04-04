@@ -1,0 +1,207 @@
+{
+	"workbench.settings.editor": "json",
+	"workbench.settings.useSplitJSON": true,
+	"workbench.iconTheme": "material-icon-theme",
+	//Font Settings
+	"editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+	"editor.fontLigatures": true,
+	"editor.fontSize": 14,
+	"terminal.integrated.fontSize": 14,
+	"editor.lineHeight": 22,
+	"editor.fontWeight": "400",
+	"editor.letterSpacing": 0.5,
+	//Cursor setup
+	"editor.cursorBlinking": "solid",
+	"editor.cursorWidth": 4,
+	//UI Improvements
+	"explorer.openEditors.visible": 10,
+	"editor.codeLens": true,
+	"explorer.confirmDragAndDrop": false,
+	"workbench.editor.enablePreview": false,
+	"editor.snippetSuggestions": "top",
+	"editor.tabCompletion": "on",
+	"editor.quickSuggestionsDelay": 500,
+	"editor.hover.delay": 500,
+	"editor.multiCursorModifier": "ctrlCmd",
+	"workbench.panel.defaultLocation": "right",
+	"editor.renderWhitespace": "all",
+	// "files.trimTrailingWhitespace": true,
+	"files.trimFinalNewlines": true,
+	"files.insertFinalNewline": true,
+	// GiT Settings
+	"git.autofetch": true,
+	"git.enableSmartCommit": true,
+	"breadcrumbs.enabled": true,
+	"editor.minimap.enabled": true,
+	"workbench.startupEditor": "newUntitledFile",
+	"terminal.integrated.macOptionIsMeta": true,
+	//WhiteSpace Commando Setup
+	"editor.trimAutoWhitespace": true,
+	"diffEditor.ignoreTrimWhitespace": false,
+	//Formatting
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	// HTML Beautification
+	"html.format.contentUnformatted": "pre,code,textarea",
+	"html.format.endWithNewline": false,
+	"html.format.extraLiners": "head, body, /html",
+	"html.format.indentHandlebars": false,
+	"html.format.indentInnerHtml": false,
+	"html.format.maxPreserveNewLines": null,
+	"html.format.preserveNewLines": true,
+	"html.format.wrapLineLength": 120,
+	"html.format.wrapAttributes": "auto",
+	"[html]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	// CSS Beautification
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"stylelint.enable": true,
+	"stylelint.validate": [
+		"css",
+		"scss"
+	],
+	"[css]": {
+		"editor.formatOnSave": false,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.stylelint": true
+		},
+		"editor.defaultFormatter": "stylelint.vscode-stylelint",
+	},
+	"[scss]": {
+		"editor.formatOnSave": false,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.stylelint": true
+		},
+		"editor.defaultFormatter": "stylelint.vscode-stylelint",
+	},
+	// JavaScript/jQuery/ReactJS Beautification
+	"[javascript]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+	},
+	"[json]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"eslint.format.enable": true,
+	"eslint.alwaysShowStatus": true,
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"typescriptreact",
+		"html"
+	],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	// PHP Beautification
+	"[php]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"editor.defaultFormatter": "persoderlind.vscode-phpcbf",
+	},
+	//PHP CS
+	"phpcs.enable": true,
+	"phpcs.executablePath": "C:/Users/Administrator/AppData/Roaming/Composer/vendor/bin/phpcs.bat",
+	"phpcs.standard": "./.phpcs.xml",
+	//PHP CBF
+	"phpcbf.enable": true,
+	"phpcbf.executablePath": "C:/Users/Administrator/AppData/Roaming/Composer/vendor/bin/phpcbf.bat",
+	"phpcbf.onsave": true,
+	"phpcbf.documentFormattingProvider": true,
+	//   "phpcbf.standard": "./phpcs.xml",
+	// PHP Files.
+	// PHP/WORDPRESS
+	"saveAndRun": {
+		"commands": [
+			{
+				"match": "\\.php$",
+				"cmd": "phpcbf --standard='WordPress' \"${file}\"",
+				"silent": true
+			}
+		]
+	},
+	//   "blankLine.triggerOnSave": true,
+	//   "blankLine.languageIds": [
+	//     "javascript",
+	//     "javascriptreact",
+	//     "typescript",
+	//     "typescriptreact",
+	//     "json",
+	//     "css",
+	//     "scss",
+	//     "html",
+	//     "htm"
+	//   ],
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/vendor": true,
+		"**/.vscode": true
+	},
+	"files.eol": "\n",
+	"intelephense.rename.exclude": [
+		"**/vendor/**",
+		"**/node_modules/**",
+		"**/bower_components/**"
+	],
+	//macros
+	"macros": {
+		"collaperAndClose": [
+			"workbench.files.action.collapseExplorerFolders",
+			"workbench.action.closeAllEditors"
+		]
+	},
+	"git.ignoreMissingGitWarning": true,
+	"gitlens.advanced.messages": {
+		"suppressGitMissingWarning": true
+	},
+	"editor.formatOnSave": true,
+	"editor.linkedEditing": true,
+	"todohighlight.isEnable": true,
+	"workbench.colorCustomizations": {
+		"editor.lineHighlightBackground": "#1073cf2d",
+		"editor.lineHighlightBorder": "#9fced11f"
+	},
+	"editor.wordWrap": "on",
+	"diffEditor.wordWrap": "on",
+	"editor.inlineSuggest.enabled": true,
+	"github.copilot.enable": {
+		"*": true,
+		"yaml": false,
+		"plaintext": true,
+		"markdown": false,
+		"php": true,
+		"blade": true,
+		"javascript": true,
+		"json": true,
+		"scss": false
+	},
+	"javascript.validate.enable": false,
+	"cSpell.words": [
+		"phpcbf"
+	],
+	"workbench.colorTheme": "Min Dark",
+	"editor.guides.indentation": false,
+	"window.confirmBeforeClose": "always",
+	"editor.bracketPairColorization.enabled": true,
+	"php.validate.executablePath": "C:\\php\\php.exe",
+	// "phpfmt.php_bin": "\"C:\\php\\php.exe\"",
+	"linthtml.enable": true,
+	"linthtml.configFile": "./.linthtmlrc.json",
+	"editor.formatOnSave": true,
+}
