@@ -4,7 +4,7 @@
 module.exports = {
 	// Project options.
 	projectName: 'STEP by PGC',
-	projectURL: '/localhost/step/',
+	projectURL: 'http://localhost/step/',
 	projectVersion: '1.0.0',
 
 	// Browser Sync.
@@ -23,7 +23,7 @@ module.exports = {
 	cssPath: 'assets/css/',
 
 	// Scripts.
-	jsSRC: [ '!assets/js/partials/', 'assets/js/partials/site-scripts.js' ],
+	jsSRC: [ 'assets/js/vendor/jquery.main.js', '!assets/js/partials/', 'assets/js/partials/site-scripts.js' ],
 	jsDestination: 'assets/js/',
 	jsFile: 'bundle',
 

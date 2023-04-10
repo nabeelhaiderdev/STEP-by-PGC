@@ -45,7 +45,7 @@ $step_tohdr_tbar    = $option_fields['step_tohdr_tbar'];
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<?php
 		// Add Head Scripts
 	if ( $hscripts != '' ) {
@@ -53,15 +53,20 @@ $step_tohdr_tbar    = $option_fields['step_tohdr_tbar'];
 	}
 	?>
 	<link rel="apple-touch-icon" sizes="180x180"
-		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/apple-touch-icon.png">
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pwa/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32"
-		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/favicon-32x32.png">
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pwa/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16"
-		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/favicon-16x16.png">
-	<link rel="icon" sizes="any" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/favicon.ico">
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pwa/favicon-16x16.png">
+	<link rel="icon" sizes="any"
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pwa/favicon.ico">
 	<link rel="icon" type="image/svg+xml"
-		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/icon.svg">
-	<link rel="manifest" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/site.webmanifest">
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pwa/icon.svg">
+	<link rel="manifest"
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pwa/site.webmanifest">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 	<meta name="theme-color" content="#0047FE">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="application-name" content="BaseTheme Package">
@@ -70,9 +75,9 @@ $step_tohdr_tbar    = $option_fields['step_tohdr_tbar'];
 	<meta name="msapplication-TileColor" content="#0047FE">
 	<meta name="msapplication-tap-highlight" content="no">
 	<meta name="msapplication-TileImage"
-		content="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/pwa-icon-144.png">
+		content="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pwa/pwa-icon-144.png">
 	<!-- iOS Safari -->
-	<meta name="apple-mobile-web-app-status-bar-style" content="#0047FE"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="#0047FE">
 	<?php
 		// Tracking Code
 	if ( $tracking != '' ) {
@@ -86,7 +91,7 @@ $step_tohdr_tbar    = $option_fields['step_tohdr_tbar'];
 		echo '</style>';
 	}
 	?>
-	 <?php wp_head(); ?> <script>
+	<?php wp_head(); ?> <script>
 	"serviceWorker" in navigator && window.addEventListener("load", function() {
 		navigator.serviceWorker.register("/sw.js").then(function(e) {
 			console.log("ServiceWorker registration successful with scope: ", e.scope)
@@ -100,69 +105,80 @@ $step_tohdr_tbar    = $option_fields['step_tohdr_tbar'];
 <body <?php body_class(); ?>> <?php wp_body_open(); ?> <?php
 if ( $bscripts != '' ) {
 	?>
-	 <div style="display: none;">
+	<div style="display: none;">
 		<?php echo html_entity_decode( $bscripts, ENT_QUOTES ); ?> </div> <?php } ?> <a
 		class="skip-link screen-reader-text"
 		href="#page-section"><?php esc_html_e( 'Skip to content', 'step_td' ); ?></a>
-	<header id="header-section" class="header-section">
-		<!-- Header Start -->
-
-		<div class="header-wrapper header-inner d-flex align-items-center justify-content-between">
-			<div class="header-logo logo">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img
-						src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site-logo.svg"
-						alt="Site Logo" /></a>
-			</div>
-			<div class="right-header header-navigation">
-				<div class="nav-overlay">
-					<div class="nav-container">
-						<div class="header-nav"> 
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'header-nav',
-								'fallback_cb'    => 'nav_fallback',
-							)
-						);
-						?>
-							 </div>
-						<?php if ( $step_tohdr_btn || $step_tohdr_btn_two ) { ?>
-						<div class="header-btns desktop-hide">
-							<?php
-							if ( $step_tohdr_btn ) {
-								echo glide_acf_button( $step_tohdr_btn, 'button' );
-							}
-
-							if ( $step_tohdr_btn_two ) {
-								echo glide_acf_button( $step_tohdr_btn_two, 'button' );
-							}
-							?>
+	<!-- Main Area Start -->
+	<header class="header">
+		<div class="header-wrapper">
+			<div class="container">
+				<div class="header-left">
+					<strong class="logo">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+							<img class="logo-blue"
+								src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png"
+								alt="Step">
+							<img class="logo-white"
+								src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-w.png"
+								alt="Step">
+						</a>
+					</strong>
+					<ul class="courses-menu">
+						<li class="parent courses-drop">
+							<a class="courses-drop-opener" href="#">
+								<i class="fas fa-th"></i> Courses <i class="fas fa-chevron-down"></i>
+							</a>
+							<ul class="courses-dropdown">
+								<li class="courses-submenu">
+									<a class="courses-submenu-opener" href="#">mdcat <i
+											class="fas fa-chevron-right"></i></a>
+									<ul class="courses-submenu-drop">
+										<li><a href="#">Sub Menu</a></li>
+										<li><a href="#">Sub Menu</a></li>
+										<li><a href="#">Sub Menu</a></li>
+										<li><a href="#">Sub Menu</a></li>
+										<li><a href="#">Sub Menu</a></li>
+									</ul>
+								</li>
+								<li><a href="#">ecat</a></li>
+								<li><a href="#">nts</a></li>
+								<li><a href="#">fungat</a></li>
+								<li><a href="#">sat-i</a></li>
+								<li><a href="#">nust</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="header-right">
+					<a href="#" class="nav-opener"><span></span></a>
+					<div class="header-holder">
+						<div class="header-wrap">
+							<div class="header-info">
+								<ul class="social-networks">
+									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								</ul>
+								<div class="header-contect">
+									<a href="tel:0800-78608">0800-78608</a> (9:00 AM-5:00 PM)
+								</div>
+							</div>
+							<ul class="main-nav">
+								<li class="active"><a href="#">home</a></li>
+								<li><a href="#">about</a></li>
+								<li><a href="#">scholarships</a></li>
+								<li><a href="#">fee structure</a></li>
+								<li><a href="#">faqs</a></li>
+								<li><a href="#">blogs</a></li>
+								<li><a href="#">contact us</a></li>
+								<li><a href="#" class="btn btn-primary btn-sm">Step Online</a></li>
+							</ul>
 						</div>
-						<?php } ?>
 					</div>
 				</div>
-				<div class="menu-btn">
-					<span class="top"></span>
-					<span class="middle"></span>
-					<span class="bottom"></span>
-				</div>
 			</div>
-			<?php if ( $step_tohdr_btn || $step_tohdr_btn_two ) { ?>
-			<div class="header-btns">
-				<?php
-				if ( $step_tohdr_btn ) {
-					echo glide_acf_button( $step_tohdr_btn, 'button' );
-				}
-
-				if ( $step_tohdr_btn_two ) {
-					echo glide_acf_button( $step_tohdr_btn_two, 'button' );
-				}
-				?>
-			</div>
-			<?php } ?>
-			<!-- header buttons -->
 		</div>
-		<!-- Header End -->
 	</header>
-	<!-- Main Area Start -->
 	<main id="main-section" class="main-section">

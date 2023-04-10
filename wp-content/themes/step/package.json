@@ -15,7 +15,7 @@
 	"scripts": {
 		"start": "gulp",
 		"zip": "gulp zip",
-    "lint:css": "wp-scripts lint-style",
+		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js"
 	},
 	"devDependencies": {
@@ -47,8 +47,8 @@
 		"extends": "@wordpress/stylelint-config/scss",
 		"rules": {
 			"no-descending-specificity": null,
-      "color-named": null,
-      "selector-class-pattern": null
+			"color-named": null,
+			"selector-class-pattern": null
 		}
 	}
 }
