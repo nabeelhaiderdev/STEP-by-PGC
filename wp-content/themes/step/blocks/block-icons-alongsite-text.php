@@ -53,7 +53,7 @@ $step_blk_iat_button = ( isset( $block_fields['step_blk_iat_button'] ) ) ? $bloc
                 <div class="container">
                     <div class="explore-courses">
                         <div class="courses-header">
-                            <h2><?php echo $step_blk_iat_title;?></h2>
+                            <h2><?php echo htmlspecialchars_decode($step_blk_iat_title);?></h2>
                             <a class="viewall-link" href="<?php echo $step_blk_iat_button;?>">View all <i class="fas fa-arrow-right"></i></a>
 
                         </div>

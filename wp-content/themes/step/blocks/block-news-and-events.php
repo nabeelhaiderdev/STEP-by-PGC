@@ -45,6 +45,8 @@ if($block['name']){
 
 $title = ( isset( $block_fields['title'] ) ) ? $block_fields['title'] : null;
 $news_post = ( isset( $block_fields['news_post'] ) ) ? $block_fields['news_post'] : null;
+$step_blk_nae_button = ( isset( $block_fields['step_blk_nae_button'] ) ) ? $block_fields['step_blk_nae_button'] : null;
+
 
 ?>
 <div id="<?php echo $id; ?>" class="<?php echo $align_class . ' ' . $class_name. ' ' . $name; ?> glide-block-<?php echo $block_glide_name; ?>">
@@ -72,7 +74,11 @@ $news_post = ( isset( $block_fields['news_post'] ) ) ? $block_fields['news_post'
 						?>
                     </div>
                     <div class="btn-block">
-                        <a href="#" class="btn btn-primary btn-lg">view all</a>
+						<?php
+							if( $step_blk_nae_button ) :
+								echo glide_acf_button( $step_blk_nae_button, 'btn btn-primary btn-lg' );
+							endif;
+						?>
                     </div>
                 </div>
             </section>

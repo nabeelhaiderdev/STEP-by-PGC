@@ -129,17 +129,24 @@ if ( $bscripts != '' ) {
 							<a class="courses-drop-opener" href="#">
 								<i class="fas fa-th"></i> Courses <i class="fas fa-chevron-down"></i>
 							</a>
+							<?php
+							$categories = get_categories();
+							?>
 							<ul class="courses-dropdown">
 								<li class="courses-submenu">
 									<a class="courses-submenu-opener" href="#">mdcat <i
 											class="fas fa-chevron-right"></i></a>
 									<ul class="courses-submenu-drop">
+										<?php 
+										foreach ($categories as $category) {
+										?>
+										<li><a href="<?echo get_category_link($category->term_id);?>"><?php echo $category->name?></a></li>
+										<?php  } ?>
+										<!-- <li><a href="#">Sub Menu</a></li>
 										<li><a href="#">Sub Menu</a></li>
 										<li><a href="#">Sub Menu</a></li>
 										<li><a href="#">Sub Menu</a></li>
-										<li><a href="#">Sub Menu</a></li>
-										<li><a href="#">Sub Menu</a></li>
-									</ul>
+									</ul> -->
 								</li>
 								<li><a href="#">ecat</a></li>
 								<li><a href="#">nts</a></li>
@@ -165,7 +172,30 @@ if ( $bscripts != '' ) {
 									<a href="tel:0800-78608">0800-78608</a> (9:00 AM-5:00 PM)
 								</div>
 							</div>
-							<ul class="main-nav">
+							<?php  
+							$menu_items = wp_get_nav_menu_items('Main Menu');
+							foreach ($menu_items as $menu_item) {
+
+							// Check if the current menu item is the active one
+							if ($menu_item->current == true) {
+
+								// Mark the menu item as active by adding a CSS class
+								$menu_item->classes[] = 'active';
+
+							}
+
+							}
+
+							// Output the menu as a list
+							echo '<ul class="main-nav">';
+							foreach ($menu_items as $menu_item) {
+								echo '<li class="' . implode(' ', $menu_item->classes) . '"><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
+								
+							}
+							echo '<li><a href="#" class="btn btn-primary btn-sm">Step Online</a></li>';
+							echo '</ul>';
+							?>
+							<!-- <ul class="main-nav">
 								<li class="active"><a href="#">home</a></li>
 								<li><a href="#">about</a></li>
 								<li><a href="#">scholarships</a></li>
@@ -174,7 +204,7 @@ if ( $bscripts != '' ) {
 								<li><a href="#">blogs</a></li>
 								<li><a href="#">contact us</a></li>
 								<li><a href="#" class="btn btn-primary btn-sm">Step Online</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>

@@ -1,6 +1,6 @@
 {
     "key": "group_6434eaf44b6f3",
-    "title": "News and Events",
+    "title": "Block - News and Events",
     "fields": [
         {
             "key": "field_6434eaf4c83c1",
@@ -121,6 +121,22 @@
                     "parent_repeater": "field_6434ec8bc83c4"
                 }
             ]
+        },
+        {
+            "key": "field_643cf336e3e77",
+            "label": "Button",
+            "name": "step_blk_nae_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -141,5 +157,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681191156
+    "modified": 1681716043
 }
