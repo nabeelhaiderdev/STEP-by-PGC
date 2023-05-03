@@ -37,7 +37,7 @@ $footer_scripts = ( isset( $option_fields['footer_scripts'] ) ) ? $option_fields
 // Schema Markup - ACF variables.
 
 
-$step_schema_check = $option_fields['step_schema_check'];
+$step_schema_check = isset($option_fields['step_schema_check'])? $option_fields['step_schema_check']:array();
 if ( $step_schema_check ) {
 	$step_schema_business_name       = html_entity_remove( $option_fields['step_schema_business_name'] );
 	$step_schema_business_legal_name = html_entity_remove( $option_fields['step_schema_business_legal_name'] );
@@ -58,8 +58,8 @@ if ( $step_schema_check ) {
 // Custom - ACF variables.
 
 $step_ftrop_title     = ( isset( $option_fields['step_ftrop_title'] ) ) ? $option_fields['step_ftrop_title'] : null;
-$step_ftrop_text      = html_entity_decode( $option_fields['step_ftrop_text'] );
-$step_ftrop_copyright = html_entity_decode( $option_fields['step_ftrop_copyright'] );
+$step_ftrop_text      = (isset($option_fields['step_ftrop_text'])) ? html_entity_decode( $option_fields['step_ftrop_text'] ):"";
+$step_ftrop_copyright = (isset($option_fields['step_ftrop_copyright'])) ? html_entity_decode( $option_fields['step_ftrop_copyright'] ) : "";
 $step_social_fb       = ( isset( $option_fields['step_social_fb'] ) ) ? $option_fields['step_social_fb'] : null;
 $step_social_tw       = ( isset( $option_fields['step_social_tw'] ) ) ? $option_fields['step_social_tw'] : null;
 $step_social_li       = ( isset( $option_fields['step_social_li'] ) ) ? $option_fields['step_social_li'] : null;

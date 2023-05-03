@@ -33,9 +33,9 @@ $ccss     = ( isset( $option_fields['custom_css'] ) ) ? $option_fields['custom_c
 $hscripts = ( isset( $option_fields['head_scripts'] ) ) ? $option_fields['head_scripts'] : null;
 $bscripts = ( isset( $option_fields['body_scripts'] ) ) ? $option_fields['body_scripts'] : null;
 
-$step_tohdr_btn     = $option_fields['step_tohdr_btn'];
-$step_tohdr_btn_two = $option_fields['step_tohdr_btn_two'];
-$step_tohdr_tbar    = $option_fields['step_tohdr_tbar'];
+$step_tohdr_btn     = (isset($option_fields['step_tohdr_btn'])) ? $option_fields['step_tohdr_btn']:null;
+$step_tohdr_btn_two = isset($option_fields['step_tohdr_btn_two'])? $option_fields['step_tohdr_btn_two']:NUll;
+$step_tohdr_tbar    = isset($option_fields['step_tohdr_tbar'])? $option_fields['step_tohdr_tbar']:null;
 // Page variables - Advanced custom fields variables
 ?>
 <!DOCTYPE html>
