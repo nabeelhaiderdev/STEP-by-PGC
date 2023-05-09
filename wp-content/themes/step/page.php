@@ -25,16 +25,6 @@ global $fields;
 $step_pagetitle = glide_page_title('step_pagetitle');
 ?>
 
-<section id="hero-section" class="hero-section">
-	<!-- Hero Start -->
-
-	<div class="hero-single">
-		<div class="wrapper">
-			<h1><?php echo the_title(); ?></h1>
-		</div>
-	</div>
-	<!-- Hero End -->
-</section>
 
 <section id="page-section" class="page-section">
 	<!-- Content Start -->

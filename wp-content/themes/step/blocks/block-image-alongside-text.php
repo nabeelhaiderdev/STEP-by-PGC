@@ -44,11 +44,15 @@ if ( $block['name'] ) {
 
 // Block variables
 
-$step_iat_title        = $block_fields['step_iat_title'];
-$step_iat_text         = html_entity_decode( $block_fields['step_iat_text'] );
-$step_iat_button       = $block_fields['step_iat_button'];
-$step_iat_img_location = $block_fields['step_iat_img_location'];
-$step_iat_image        = $block_fields['step_iat_image'];
+$step_iat_title        = isset($block_fields['step_iat_title']) ? $block_fields['step_iat_title']:NULL;
+$step_blk_iat_kicker_text        = isset($block_fields['step_blk_iat_kicker_text'])? $block_fields['step_blk_iat_kicker_text']:"";
+$step_iat_text         = isset($block_fields['step_iat_text']) ? html_entity_decode( $block_fields['step_iat_text'] ):NULL;
+$step_blk_iat_description         = isset($block_fields['step_blk_iat_description']) ? html_entity_decode( $block_fields['step_blk_iat_description'] ):NULL;
+$step_iat_button       = isset($block_fields['step_iat_button']) ? $block_fields['step_iat_button']:NULL;
+$step_iat_img_location = isset($block_fields['step_iat_img_location'])? $block_fields['step_iat_img_location']:NULL;
+$step_iat_image        = isset($block_fields['step_iat_image'])? $block_fields['step_iat_image']:NULL;
+$step_blk_iat_image        = isset($block_fields['step_blk_iat_image'])? $block_fields['step_blk_iat_image']:NULL;
+$step_blk_iat_image_text        = isset($block_fields['step_blk_iat_image_text'])? $block_fields['step_blk_iat_image_text']:NULL;
 
 
 if ( $step_iat_img_location == 'left' ) {
@@ -61,25 +65,26 @@ if ( $step_iat_img_location == 'left' ) {
 ?>
 <div id="<?php echo $id; ?>" class="<?php echo $align_class . ' ' . $class_name . ' ' . $name; ?> glide-block-<?php echo $block_glide_name; ?>">
 
-	<div class="iat-section two-columns justify-content-between align-items-center <?php echo $step_iat_img_location; ?>">
-		<div class="iat-text column">
-			<?php if ( $step_iat_title ) { ?>
-				<h2><?php echo $step_iat_title; ?></h2>
-			<?php } ?>
-			<?php if ( $step_iat_text ) { ?>
-				<?php echo $step_iat_text; ?>
-			<?php } ?>
-			<?php if ( $step_iat_button ) { ?>
-				<div class="iat-button">
-					<?php echo glide_acf_button( $step_iat_button, 'button' ); ?>
-				</div>
-			<?php } ?>
-		</div>
-		<?php if ( $step_iat_image ) { ?>
-			<div class="iat-image column">
-				<img src="<?php echo wp_get_attachment_image_url( $step_iat_image, 'full' ); ?>" alt="">
-			</div>
-		<?php } ?>
-	</div>
+	<section class="high-achivers about">
+                <div class="container">
+                    <div class="row-block align-center">
+                        <div class="col-block-6 column-left">
+                            <h4><?php echo $step_iat_title; ?></h4>
+                            <h2><span><?php echo $step_blk_iat_kicker_text; ?></span></h2>
+                            <p><?php echo $step_blk_iat_description; ?></p>
+                        </div>
+                        <div class="col-block-6 column-right center-img">
+                            <div class="image-holder with-caption">
+                                <img src="<?php echo $step_blk_iat_image?>" alt="About Step">
+                                <div class="image-caption">
+                                    <h3>
+                                       <?php echo $step_blk_iat_image_text;?>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 </div>

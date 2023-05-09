@@ -1,10 +1,10 @@
 {
-    "key": "group_627946c545bce",
-    "title": "Block - Image Alongside Text",
+    "key": "group_6454a0d08627c",
+    "title": "Block - Sidebar Contact",
     "fields": [
         {
-            "key": "field_627946d1c50e7",
-            "label": "<h2 style=\"text-align:center;\"> Image Alongside Text <\/h2>",
+            "key": "field_6454a0d1d89f5",
+            "label": "<h2 style='text-align:center'>Sidebar Contact<\/h2>",
             "name": "",
             "type": "message",
             "instructions": "",
@@ -20,9 +20,14 @@
             "esc_html": 0
         },
         {
-            "key": "field_627946dfc50e8",
+            "key": "field_6454a258bdaa7",
             "label": "Title",
+<<<<<<< Updated upstream:wp-content/themes/step/acf-json/group_627946c545bce.json
             "name": "step_iat_title",
+=======
+            "name": "step_blk_sb_ct_title",
+            "aria-label": "",
+>>>>>>> Stashed changes:wp-content/themes/step/acf-json/group_6454a0d08627c.json
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -33,13 +38,13 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
-            "key": "field_62794720c50e9",
+            "key": "field_6454a506bdaa8",
             "label": "Expand for options",
             "name": "",
             "type": "accordion",
@@ -56,6 +61,7 @@
             "endpoint": 0
         },
         {
+<<<<<<< Updated upstream:wp-content/themes/step/acf-json/group_627946c545bce.json
             "key": "field_62794734c50ea",
             "label": "Text",
             "name": "step_iat_text",
@@ -80,6 +86,13 @@
             "label": "Button",
             "name": "step_iat_button",
             "type": "link",
+=======
+            "key": "field_6454a514bdaa9",
+            "label": "Phone",
+            "name": "step_blk_sb_ct_phone",
+            "aria-label": "",
+            "type": "text",
+>>>>>>> Stashed changes:wp-content/themes/step/acf-json/group_6454a0d08627c.json
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -91,6 +104,7 @@
             "return_format": "array"
         },
         {
+<<<<<<< Updated upstream:wp-content/themes/step/acf-json/group_627946c545bce.json
             "key": "field_62794d860c37a",
             "label": "Image Upload Instructions",
             "name": "",
@@ -134,6 +148,13 @@
             "label": "Image",
             "name": "step_iat_image",
             "type": "image",
+=======
+            "key": "field_6454a5f9bdaab",
+            "label": "Time",
+            "name": "step_blk_sb_ct_time",
+            "aria-label": "",
+            "type": "text",
+>>>>>>> Stashed changes:wp-content/themes/step/acf-json/group_6454a0d08627c.json
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -142,6 +163,7 @@
                 "class": "",
                 "id": ""
             },
+<<<<<<< Updated upstream:wp-content/themes/step/acf-json/group_627946c545bce.json
             "return_format": "id",
             "preview_size": "admin-portrait",
             "library": "all",
@@ -152,6 +174,71 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+=======
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6454a531bdaaa",
+            "label": "Email",
+            "name": "step_blk_sb_ct_email",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6454ab460df1f",
+            "label": "Sub Title",
+            "name": "step_blk_sb_ct_sub_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6454abcf374b1",
+            "label": "Social links will be added from Theme Options",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+>>>>>>> Stashed changes:wp-content/themes/step/acf-json/group_6454a0d08627c.json
         }
     ],
     "location": [
@@ -159,7 +246,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image-alongside-text"
+                "value": "acf\/sidebar-contact"
             }
         ]
     ],
@@ -172,5 +259,10 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+<<<<<<< Updated upstream:wp-content/themes/step/acf-json/group_627946c545bce.json
     "modified": 1652117155
 }
+=======
+    "modified": 1683270650
+}
+>>>>>>> Stashed changes:wp-content/themes/step/acf-json/group_6454a0d08627c.json

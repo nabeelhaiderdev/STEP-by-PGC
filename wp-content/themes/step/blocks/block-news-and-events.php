@@ -42,42 +42,60 @@ if($block['name']){
 // Block variables
 // $custom_field_of_block = html_entity_decode($block_fields['custom_field_of_block']); // for keeping html from input
 // $custom_field_of_block = html_entity_remove($block_fields['custom_field_of_block']); // for removing html from input
-$step_tg_title = ( isset( $block_fields['step_tg_title'] ) ) ? $block_fields['step_tg_title'] : null;
-$step_testimonials_bakcground_image = ( isset( $block_fields['step_testimonials_bakcground_image'] ) ) ? $block_fields['step_testimonials_bakcground_image'] : null;
-$expand_testiminials_opt = ( isset( $block_fields['expand_testiminials_opt'] ) ) ? $block_fields['expand_testiminials_opt'] : null;
+
+$step_blk_nae_title = ( isset( $block_fields['step_blk_nae_title'] ) ) ? $block_fields['step_blk_nae_title'] : null;
+$step_blk_nae_number_of_posts = ( isset( $block_fields['step_blk_nae_number_of_posts'] ) ) ? $block_fields['step_blk_nae_number_of_posts'] : null;
+$step_blk_nae_button = ( isset( $block_fields['step_blk_nae_button'] ) ) ? $block_fields['step_blk_nae_button'] : null;
+
+
 ?>
 <div id="<?php echo $id; ?>" class="<?php echo $align_class . ' ' . $class_name. ' ' . $name; ?> glide-block-<?php echo $block_glide_name; ?>">
-
-             <section class="testimonial-block">
-                <div class="bg-image">
-                    <img src="<?php echo $step_testimonials_bakcground_image;?>" alt="Image Description">
-                </div>
+<?php 
+$args = array(
+    'post_type' => 'news',
+    'posts_per_page' => $step_blk_nae_number_of_posts,
+    'orderby' => array(
+        'date' => 'DESC',
+    ),
+);
+$query = new WP_Query( $args );
+?>
+	
+ <section class="section-news-events">
                 <div class="container">
-                    <div class="testimonial-head">
-                        <h2><?php echo $step_tg_title;?></h2>
-                    </div>
-                    <div class="testimonialSlider">
+                    <header class="section-head">
+                        <h2><span><?php echo $step_blk_nae_title; ?></span></h2>
+                    </header>
+					<?php if ( $query->have_posts() ) {?>
+				
+                    <div class="news-block">
+						<?php  while ( $query->have_posts() ) {
+        $query->the_post();
+		$title = get_the_title();
+		if (strlen($title) > 45) {
+			$title = substr($title, 0, 51) . '...';
+		}
+
+?>
+                        <a class="news-box" href="<?php the_permalink()?>">
+                            <div class="textbox">
+                                <span class="date"><?php the_date('M m, Y'); ?></span>
+                                <h3><?php echo $title; ?></h3>
+                            </div>
+                            <span class="view-more-btn">
+                                View More <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </a>
+                        <?php }?>
+				</div>
+					<?php }
+wp_reset_postdata(); ?>
+                    <div class="btn-block">
 						<?php
-						foreach($expand_testiminials_opt as $row){
+							if( $step_blk_nae_button ) :
+								echo glide_acf_button( $step_blk_nae_button, 'btn btn-primary btn-lg' );
+							endif;
 						?>
-                        <div class="slick-slide">
-                            <blockquote class="testimonial-box">
-                                <div class="title-info">
-                                    <div class="user-image"><img src="<?php echo  $row['step_testimonials_eo_pic'];?>" alt="<?php echo  $row['step_testimonials_ep_name'];?>"></div>
-                                    <div class="profile-info">
-                                        <h3><?php echo  $row['step_testimonials_ep_name'];?></h3>
-                                        <h5><?php echo  $row['step_eo_testimonial_position'];?></h5>
-                                        <span class="tag"><?php echo  $row['step_testi_ponial_ep_degree'];?></span>
-                                    </div>
-                                </div>
-                                <q>
-                                    <?php echo  $row['step_ep_testimonials_description'];?>
-                                </q>
-                            </blockquote>
-                        </div>
-						<?php
-						}
-						?>	
                     </div>
                 </div>
             </section>

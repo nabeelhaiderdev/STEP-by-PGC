@@ -204,3 +204,35 @@ function glide_register_required_plugins() {
     glide( $plugins, $config );
 
 }
+
+function glide_theme_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'News Sidebar', 'step_td' ),
+		'id'            => 'sidebar-news',
+		'description'   => __( 'Widgets in this area will be shown on all news posts.', 'step_td' ),
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="glide-widgettitle">',
+		'after_title'   => '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Blog Sidebar', 'step_td' ),
+		'id'            => 'sidebar-blog',
+		'description'   => __( 'Widgets in this area will be shown on all blog posts.', 'step_td' ),
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="glide-widgettitle">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Courses Sidebar', 'step_td' ),
+		'id'            => 'sidebar-courses',
+		'description'   => __( 'Widgets in this area will be shown on all Course posts.', 'step_td' ),
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="glide-widgettitle">',
+		'after_title'   => '</h4>',
+	) );
+}
+add_action( 'widgets_init', 'glide_theme_widgets_init' );

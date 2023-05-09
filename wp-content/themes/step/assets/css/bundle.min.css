@@ -3430,9 +3430,6 @@ button {
     margin: 0 0 30px;
   }
 }
-.widget:last-child {
-  margin: 0 !important;
-}
 .widget h4 {
   font-size: 20px;
   color: inherit;
@@ -3871,6 +3868,7 @@ button {
           box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
+  margin: 40px 0;
 }
 @media (max-width: 1023px) {
   .blog-details {
@@ -5016,8 +5014,92 @@ button {
   width: 100%;
 }
 
-.page-inner .tick-list.yellow li::before {
+.page-inner .tick-list.yellow li::before, .block-features .tick-list.yellow li::before {
   background: url(../images/ico-tick-yellow.png) no-repeat;
+}
+
+.page-section .tick-list {
+  position: relative;
+  padding: 0;
+  list-style: none;
+  margin: 0 0 34px;
+}
+@media (max-width: 1199px) {
+  .page-section .tick-list {
+    margin: 0 0 25px;
+  }
+}
+@media (max-width: 1023px) {
+  .page-section .tick-list {
+    margin: 0 0 20px;
+  }
+}
+.page-section .tick-list li {
+  position: relative;
+  padding: 0 0 0 42px;
+}
+@media (max-width: 1023px) {
+  .page-section .tick-list li {
+    padding: 0 0 0 35px;
+  }
+}
+.page-section .tick-list li::before {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  background: url(../images/ico-tick.png) no-repeat;
+  width: 20px;
+  height: 15px;
+  background-size: 100% auto;
+  content: "";
+}
+.page-section table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  position: relative;
+  max-width: 600px;
+  padding: 40px 0 53px;
+}
+@media (max-width: 1199px) {
+  .page-section table {
+    padding: 30px 0 35px;
+  }
+}
+@media (max-width: 1023px) {
+  .page-section table {
+    padding: 0 0 20px;
+  }
+}
+.page-section table th {
+  background: #2f3186;
+  color: #fff;
+}
+.page-section table th,
+.page-section table td {
+  padding: 10px 20px 10px 100px;
+  width: 50%;
+  border: 0;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .page-section table th,
+.page-section table td {
+    padding-left: 20px;
+  }
+}
+.page-section table td {
+  background: #fff;
+}
+.page-section table tr:nth-child(even) td {
+  background: #ebebeb;
+}
+.page-section table span,
+.page-section table strong {
+  display: block;
+}
+.page-section table strong {
+  font-weight: 500;
 }
 /*# sourceMappingURL=bundle.css.map */
 

@@ -31,7 +31,10 @@ global $fields;
 <section id="page-section" class="page-section">
 	<!-- Content Start -->
 	<div class="wrapper">
-		<div id="content-twocols" class="container blogs">  
+		<div id="content-twocols" class="container">  
+			<div id="sidebar">
+			<?php dynamic_sidebar( 'sidebar-courses' );?>
+		</div>	
             <div id="content">
 			<?php
 				if ( have_posts() ) {
@@ -47,12 +50,6 @@ global $fields;
 				}
 			?>
 		</div>
-		<div id="sidebar">
-			<?php
-			
-			?>
-
-		</div>	
 		<div class="ts-40"></div>
 		</div>
 			<div class="container">

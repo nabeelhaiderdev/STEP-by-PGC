@@ -3033,9 +3033,9 @@ button {
 		margin: 0 0 30px;
 	}
 
-	&:last-child {
-		margin: 0 !important;
-	}
+	// &:last-child {
+	// 	margin: 0 !important;
+	// }
 
 	h4 {
 		font-size: 20px;
@@ -3487,6 +3487,7 @@ button {
 	box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	overflow: hidden;
+	margin: 40px 0;
 
 	@media (max-width: $desktop) {
 		box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -4674,7 +4675,7 @@ button {
 	}
 }
 
-.page-inner {
+.page-inner, .block-features {
 
 	.tick-list {
 
@@ -4688,4 +4689,93 @@ button {
 			}
 		}
 	}
+}
+.page-section{
+
+	.tick-list {	
+	position: relative;
+	padding: 0;
+	list-style: none;
+	margin: 0 0 34px;
+
+	@media (max-width: $widescreen) {
+		margin: 0 0 25px;
+	}
+
+	@media (max-width: $desktop) {
+		margin: 0 0 20px;
+	}
+
+	li {
+		position: relative;
+		padding: 0 0 0 42px;
+
+		@media (max-width: $desktop) {
+			padding: 0 0 0 35px;
+		}
+
+		&::before {
+			position: absolute;
+			left: 0;
+			top: 8px;
+			background: url(../images/ico-tick.png) no-repeat;
+			width: 20px;
+			height: 15px;
+			background-size: 100% auto;
+			content: "";
+		}
+	}
+}
+
+table {
+	width: 100%;
+	border: 0;
+	border-collapse: collapse;
+	position: relative;
+	max-width: 600px;
+	padding: 40px 0 53px;
+
+	@media (max-width: $widescreen) {
+		padding: 30px 0 35px;
+	}
+
+	@media (max-width: $desktop) {
+		padding: 0 0 20px;
+	}
+
+	th {
+		background: $primary;
+		color: $white;
+	}
+
+	th,
+	td {
+		padding: 10px 20px 10px 100px;
+		width: 50%;
+		border: 0;
+		text-align: left;
+
+		@media (max-width: $tablet) {
+			padding-left: 20px;
+		}
+
+	}
+
+	td {
+		background: $white;
+	}
+
+	tr:nth-child(even) td {
+		background: #ebebeb;
+	}
+
+	span,
+	strong {
+		display: block;
+	}
+
+	strong {
+		font-weight: 500;
+	}
+}
 }

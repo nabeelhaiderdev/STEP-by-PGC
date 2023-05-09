@@ -37,7 +37,7 @@ $footer_scripts = ( isset( $option_fields['footer_scripts'] ) ) ? $option_fields
 // Schema Markup - ACF variables.
 
 
-$step_schema_check = $option_fields['step_schema_check'];
+$step_schema_check = isset($option_fields['step_schema_check'])? $option_fields['step_schema_check']:array();
 if ( $step_schema_check ) {
 	$step_schema_business_name       = html_entity_remove( $option_fields['step_schema_business_name'] );
 	$step_schema_business_legal_name = html_entity_remove( $option_fields['step_schema_business_legal_name'] );
@@ -58,8 +58,8 @@ if ( $step_schema_check ) {
 // Custom - ACF variables.
 
 $step_ftrop_title     = ( isset( $option_fields['step_ftrop_title'] ) ) ? $option_fields['step_ftrop_title'] : null;
-$step_ftrop_text      = html_entity_decode( $option_fields['step_ftrop_text'] );
-$step_ftrop_copyright = html_entity_decode( $option_fields['step_ftrop_copyright'] );
+$step_ftrop_text      = (isset($option_fields['step_ftrop_text'])) ? html_entity_decode( $option_fields['step_ftrop_text'] ):"";
+$step_ftrop_copyright = (isset($option_fields['step_ftrop_copyright'])) ? html_entity_decode( $option_fields['step_ftrop_copyright'] ) : "";
 $step_social_fb       = ( isset( $option_fields['step_social_fb'] ) ) ? $option_fields['step_social_fb'] : null;
 $step_social_tw       = ( isset( $option_fields['step_social_tw'] ) ) ? $option_fields['step_social_tw'] : null;
 $step_social_li       = ( isset( $option_fields['step_social_li'] ) ) ? $option_fields['step_social_li'] : null;
@@ -67,96 +67,79 @@ $step_social_in       = ( isset( $option_fields['step_social_in'] ) ) ? $option_
 
 ?>
  <?php get_template_part( 'partials/cta' ); ?> </main>
-<footer id="footer-section" class="footer-section">
+<footer id="footer-section" class="footer footer-section step_footer">
 	<!-- Footer Start -->
-	<div class="footer-ctn">
-		<div class="wrapper">
-
-			<div class="footer-widgets d-flex justify-content-between flex-wrap">
-				<div class="single-widget"> <?php if ( $step_ftrop_title ) { ?>
-					<div class="footer-logo">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site-logo-white.svg" alt="Logo" />
-						</a>
-					</div>
-					<h5> <?php echo html_entity_decode( $step_ftrop_title ); ?></h5> <?php } ?>
-					<?php if ( $step_ftrop_text ) { ?>
-						<div class="address"><?php echo $step_ftrop_text; ?></div>
-					<?php } ?>
-					<div class="social-icons d-flex">
-						<?php
-						if ( $step_social_fb ) {
-							?>
-							<a href="<?php echo $step_social_fb; ?>" target="_blank" class="facebook flex-center"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/facebook-icon.svg" alt="Facebook Icon" /></a><?php } ?>
-						<?php
-						if ( $step_social_tw ) {
-							?>
-							<a href="<?php echo $step_social_tw; ?>" target="_blank" class="tweeter flex-center"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/linkedin-icon.svg" alt="LinkedIn Icon" /></a><?php } ?>
-						<?php
-						if ( $step_social_li ) {
-							?>
-							<a href="<?php echo $step_social_li; ?>" target="_blank" class="linkdhin flex-center"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/twitter-icon.svg" alt="Twitter Icon" /></a><?php } ?>
-						<?php
-						if ( $step_social_in ) {
-							?>
-							<a href="<?php echo $step_social_in; ?>" target="_blank" class="instagram flex-center"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/instagram-icon.svg" alt="Instagram Icon" /></a><?php } ?>
-					</div>
-				</div>
-				<div class="single-widget">
-					<div class="footer-nav"> 
-					<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'footer-nav-one',
-									'fallback_cb'    => 'nav_fallback',
-								)
-							);
-							?>
-							 </div>
-				</div>
-				<div class="single-widget">
-					<div class="footer-nav"> 
-					<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'footer-nav-two',
-									'fallback_cb'    => 'nav_fallback',
-								)
-							);
-							?>
-							 </div>
-				</div>
-				<div class="single-widget">
-					<div class="footer-nav"> 
-					<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'footer-nav-three',
-									'fallback_cb'    => 'nav_fallback',
-								)
-							);
-							?>
-							 </div>
-				</div>
-			</div>
-			<div class="s-80"></div>
-			<div class="footer-bottom d-flex align-items-center justify-content-between">
-				<?php if ( $step_ftrop_copyright ) { ?>
-					<div class="copy-right"><?php echo $step_ftrop_copyright; ?></div>
-				<?php } ?>
-				<div class="legal-nav"> 
-				<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'legal-nav',
-								'fallback_cb'    => 'nav_fallback',
-							)
-						);
-						?>
-						 </div>
-			</div>
-		</div>
-	</div>
+	<div class="pri-footer">
+                <div class="container">
+                    <strong class="logo">
+                        <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/footer-logo.png" width="145" height="44"
+                                alt="Steps School"></a>
+                    </strong>
+                    <ul class="additional-info">
+                        <li>
+                            <strong class="title">Email</strong>
+                            <a href="mailto:step@pgc.edu" class="text">step@pgc.edu</a>
+                        </li>
+                        <li>
+                            <strong class="title">Contact</strong>
+                            <span class="text"><a class="text" href="tel:080078608">0800-78608</a> (9:00 AM - 5:00 PM)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sec-footer">
+                <div class="container">
+                    <div class="theme-info">
+                        <p>STEP- The Largest Entry
+                            Test Preparation Network in Pakistan- offers entry test preparatory courses</p>
+                    </div>
+                    <div class="columns-holder">
+                        <ul class="social-links">
+                            <li><a href="#" target="_blank">Facebook</a></li>
+                            <li><a href="#" target="_blank">Instagram</a></li>
+                            <li><a href="#" target="_blank">Twitter</a></li>
+                            <li><a href="#" target="_blank">linkedin</a></li>
+                        </ul>
+                        <div class="usefull-links">
+                            <strong class="title">Useful Links</strong>
+                            <div class="links-wrap">
+                                <ul>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Features</a></li>
+                                    <li><a href="#">Our Pricing</a></li>
+                                    <li><a href="#">Latest News</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">FAQ's</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms & Condition</a></li>
+                                    <li><a href="#">Community</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="contact-column">
+                            <strong class="title">Contact Us</strong>
+                            <ul class="contact-info">
+                                <li>
+                                    <strong class="subtitle">Helpline</strong>
+                                    <a href="tel=080078608" class="number">0800-78608</a>
+                                </li>
+                                <li>
+                                    <strong class="subtitle">Location</strong>
+                                    <span class="text">123-C, Block E1, Gulberg, III Lahore</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyrights">
+                <div class="container">
+                    <p>Copyright © Step by PGC</p>
+                </div>
+            </div>
 	<!-- Footer End --> 
 	<?php
 	if ( $step_schema_check ) {

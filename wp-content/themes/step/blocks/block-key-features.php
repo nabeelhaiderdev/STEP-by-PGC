@@ -42,43 +42,36 @@ if($block['name']){
 // Block variables
 // $custom_field_of_block = html_entity_decode($block_fields['custom_field_of_block']); // for keeping html from input
 // $custom_field_of_block = html_entity_remove($block_fields['custom_field_of_block']); // for removing html from input
-$step_tg_title = ( isset( $block_fields['step_tg_title'] ) ) ? $block_fields['step_tg_title'] : null;
-$step_testimonials_bakcground_image = ( isset( $block_fields['step_testimonials_bakcground_image'] ) ) ? $block_fields['step_testimonials_bakcground_image'] : null;
-$expand_testiminials_opt = ( isset( $block_fields['expand_testiminials_opt'] ) ) ? $block_fields['expand_testiminials_opt'] : null;
+
+$title = ( isset( $block_fields['title'] ) ) ? $block_fields['title'] : null;
+$features_posts = ( isset( $block_fields['features_posts'] ) ) ? $block_fields['features_posts'] : null;
 ?>
 <div id="<?php echo $id; ?>" class="<?php echo $align_class . ' ' . $class_name. ' ' . $name; ?> glide-block-<?php echo $block_glide_name; ?>">
 
-             <section class="testimonial-block">
-                <div class="bg-image">
-                    <img src="<?php echo $step_testimonials_bakcground_image;?>" alt="Image Description">
-                </div>
+             <section class="keyfeatures-block">
                 <div class="container">
-                    <div class="testimonial-head">
-                        <h2><?php echo $step_tg_title;?></h2>
+                    <div class="feature-head">
+                        <h2><?php echo $title;?></h2>
                     </div>
-                    <div class="testimonialSlider">
+                    <ul class="features-list">
 						<?php
-						foreach($expand_testiminials_opt as $row){
+						foreach($features_posts as $features_post){
 						?>
-                        <div class="slick-slide">
-                            <blockquote class="testimonial-box">
-                                <div class="title-info">
-                                    <div class="user-image"><img src="<?php echo  $row['step_testimonials_eo_pic'];?>" alt="<?php echo  $row['step_testimonials_ep_name'];?>"></div>
-                                    <div class="profile-info">
-                                        <h3><?php echo  $row['step_testimonials_ep_name'];?></h3>
-                                        <h5><?php echo  $row['step_eo_testimonial_position'];?></h5>
-                                        <span class="tag"><?php echo  $row['step_testi_ponial_ep_degree'];?></span>
+                        <li>
+                            <div class="feature-box">
+                                <div class="holder">
+                                    <div class="icon">
+                                        <img src="<?php echo $features_post['icon'] ?>" alt="feature-icon">
                                     </div>
+                                    <h3><?php echo html_entity_decode($features_post['title']) ; ?></h3>
+									
                                 </div>
-                                <q>
-                                    <?php echo  $row['step_ep_testimonials_description'];?>
-                                </q>
-                            </blockquote>
-                        </div>
+                            </div>
+                        </li>
 						<?php
 						}
-						?>	
-                    </div>
+						?>
+                    </ul>
                 </div>
             </section>
 

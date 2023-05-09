@@ -42,42 +42,41 @@ if($block['name']){
 // Block variables
 // $custom_field_of_block = html_entity_decode($block_fields['custom_field_of_block']); // for keeping html from input
 // $custom_field_of_block = html_entity_remove($block_fields['custom_field_of_block']); // for removing html from input
-$step_tg_title = ( isset( $block_fields['step_tg_title'] ) ) ? $block_fields['step_tg_title'] : null;
-$step_testimonials_bakcground_image = ( isset( $block_fields['step_testimonials_bakcground_image'] ) ) ? $block_fields['step_testimonials_bakcground_image'] : null;
-$expand_testiminials_opt = ( isset( $block_fields['expand_testiminials_opt'] ) ) ? $block_fields['expand_testiminials_opt'] : null;
+
+$icons = ( isset( $block_fields['icons'] ) ) ? $block_fields['icons'] : null;
+$step_blk_iat_title = ( isset( $block_fields['step_blk_iat_title'] ) ) ? $block_fields['step_blk_iat_title'] : null;
+$step_blk_iat_button = ( isset( $block_fields['step_blk_iat_button'] ) ) ? $block_fields['step_blk_iat_button'] : null;
 ?>
 <div id="<?php echo $id; ?>" class="<?php echo $align_class . ' ' . $class_name. ' ' . $name; ?> glide-block-<?php echo $block_glide_name; ?>">
 
-             <section class="testimonial-block">
-                <div class="bg-image">
-                    <img src="<?php echo $step_testimonials_bakcground_image;?>" alt="Image Description">
-                </div>
+<section class="section-courses ">
                 <div class="container">
-                    <div class="testimonial-head">
-                        <h2><?php echo $step_tg_title;?></h2>
-                    </div>
-                    <div class="testimonialSlider">
-						<?php
-						foreach($expand_testiminials_opt as $row){
-						?>
-                        <div class="slick-slide">
-                            <blockquote class="testimonial-box">
-                                <div class="title-info">
-                                    <div class="user-image"><img src="<?php echo  $row['step_testimonials_eo_pic'];?>" alt="<?php echo  $row['step_testimonials_ep_name'];?>"></div>
-                                    <div class="profile-info">
-                                        <h3><?php echo  $row['step_testimonials_ep_name'];?></h3>
-                                        <h5><?php echo  $row['step_eo_testimonial_position'];?></h5>
-                                        <span class="tag"><?php echo  $row['step_testi_ponial_ep_degree'];?></span>
-                                    </div>
-                                </div>
-                                <q>
-                                    <?php echo  $row['step_ep_testimonials_description'];?>
-                                </q>
-                            </blockquote>
+                    <div class="explore-courses">
+                        <div class="courses-header">
+                            <h2><?php echo htmlspecialchars_decode($step_blk_iat_title);?></h2>
+                            <a class="viewall-link" href="<?php echo $step_blk_iat_button;?>">View all <i class="fas fa-arrow-right"></i></a>
+
                         </div>
-						<?php
-						}
-						?>	
+                        <ul class="popular-courses">
+							<?php							
+							foreach($icons as $icon){
+							?>
+                            <li>
+                                <a href="#" class="course-box">
+                                    <div class="img-holder">
+                                        <img class="clr-img" src="<?php echo $icon['icon'];?>" alt="course-icon">
+                                        <img class="white-img" src="<?php echo $icon['hover_icon'];?>" alt="course-icon">
+                                    </div>
+                                    <div class="course-detail">
+                                        <h4><?php echo $icon['title'];?></h4>
+                                        <h5><?php echo $icon['description'];?></h5>
+                                    </div>
+                                </a>
+                            </li>
+							<?php
+							}
+							?>
+                        </ul>
                     </div>
                 </div>
             </section>
