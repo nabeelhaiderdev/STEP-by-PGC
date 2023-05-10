@@ -40,5 +40,13 @@ $step_pagetitle = glide_page_title('step_pagetitle');
 
 	<!-- Content End -->
 </section>
+<?php
+if(is_front_page()) {
+	$args = array( 'posts_per_page' => 5, 'offset'=> 1, 'category' => 1 );
+	$myposts = get_posts( $args );
+ ?>
 
+<?php 
+}
+?>
 <?php get_footer(); ?>

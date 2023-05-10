@@ -15,3 +15,7 @@ Tags: custom-menu, full-width-template,  theme-options, translation-ready
 License: GNU General Public License version 3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
+footer#footer-section {
+    background: #101259;
+}
+

@@ -23,7 +23,11 @@
         {
             "key": "field_6434eb8cc83c2",
             "label": "Title",
+<<<<<<< HEAD
             "name": "step_blk_nae_title",
+=======
+            "name": "title",
+>>>>>>> 81dfb9a8492a5ccbcc7b9a810ca1245256421dfb
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -59,11 +63,19 @@
             "endpoint": 0
         },
         {
+<<<<<<< HEAD
             "key": "field_64538a30b64d9",
             "label": "Number of News",
             "name": "step_blk_nae_number_of_news",
             "aria-label": "",
             "type": "number",
+=======
+            "key": "field_6434ec8bc83c4",
+            "label": "News Post",
+            "name": "news_post",
+            "aria-label": "",
+            "type": "repeater",
+>>>>>>> 81dfb9a8492a5ccbcc7b9a810ca1245256421dfb
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -72,6 +84,7 @@
                 "class": "",
                 "id": ""
             },
+<<<<<<< HEAD
             "default_value": "",
             "min": "",
             "max": "",
@@ -79,6 +92,57 @@
             "step": "",
             "prepend": "",
             "append": ""
+=======
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6434ed4ec83c5",
+                    "label": "News date",
+                    "name": "news_date",
+                    "aria-label": "",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "F j, Y",
+                    "return_format": "M j, Y",
+                    "first_day": 1,
+                    "parent_repeater": "field_6434ec8bc83c4"
+                },
+                {
+                    "key": "field_6434ed9cc83c6",
+                    "label": "Event",
+                    "name": "event",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6434ec8bc83c4"
+                }
+            ]
+>>>>>>> 81dfb9a8492a5ccbcc7b9a810ca1245256421dfb
         },
         {
             "key": "field_643cf336e3e77",
@@ -115,5 +179,9 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+<<<<<<< HEAD
     "modified": 1683196544
+=======
+    "modified": 1681716043
+>>>>>>> 81dfb9a8492a5ccbcc7b9a810ca1245256421dfb
 }

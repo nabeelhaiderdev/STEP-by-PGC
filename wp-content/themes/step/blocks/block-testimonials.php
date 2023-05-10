@@ -1,94 +1,85 @@
 <?php
 /**
- * The template for displaying comments
+ * Block Name: Icons Alongsite Text
  *
- * This is the template that displays the area of the page that contains both the current comments
- * and the comment form.
+ * The template for displaying the custom gutenberg block named Icons Alongsite Text.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://www.advancedcustomfields.com/resources/blocks/
  *
  * @package STEP by PGC
  * @since 1.0.0
  */
 
-/**
- *
- * If the user tries to load the comments page directly
- * not inside a page or single etc. /1/
- *
- * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments. /2/
- */
+// Get all the fields from ACF for this block ID
+// $block_fields = get_fields( $block['id'] );
+$block_fields = get_fields_escaped( $block['id'] );
+// $block_fields = get_fields_escaped( $block['id'] ,'sanitize_text_field' ); // if want to remove all html
 
-if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) { /*1*/
-		die( __( 'Please do not load this page directly. Thanks!', 'step_td' ) );
-}
-if ( post_password_required() ) { /*2*/ ?>
-	<?php _e( 'This post is password protected. Enter the password to view comments.', 'step_td' ); ?>
-	<?php
-	return;
+// Set the block name for it's ID & class from it's file name
+$block_glide_name = $block['name'];
+$block_glide_name = str_replace("acf/" , "" , $block_glide_name);
+
+// Set the preview thumbnail for this block for gutenberg editor view.
+if( isset( $block['data']['preview_image_help'] )  ) {    /* rendering in inserter preview  */
+	echo '<img src="'. $block['data']['preview_image_help'] .'" style="width:100%; height:auto;">';
 }
 
+// create align class ("alignwide") from block setting ("wide").
+$align_class = $block['align'] ? 'align' . $block['align'] : '';
+
+// Get the class name for the block to be used for it.
+$class_name = (isset($block['className'])) ? $block['className'] : null;
+
+// Making the unique ID for the block.
+$id = 'block-' .$block_glide_name . "-" . $block['id'];
+
+// Making the unique ID for the block.
+if($block['name']){
+	$block_name = $block['name'];
+	$block_name = str_replace("/" , "-" , $block_name);
+	$name = 'block-' .  $block_name;
+}
+// Block variables
+// $custom_field_of_block = html_entity_decode($block_fields['custom_field_of_block']); // for keeping html from input
+// $custom_field_of_block = html_entity_remove($block_fields['custom_field_of_block']); // for removing html from input
+$step_tg_title = ( isset( $block_fields['step_tg_title'] ) ) ? $block_fields['step_tg_title'] : null;
+$step_testimonials_bakcground_image = ( isset( $block_fields['step_testimonials_bakcground_image'] ) ) ? $block_fields['step_testimonials_bakcground_image'] : null;
+$expand_testiminials_opt = ( isset( $block_fields['expand_testiminials_opt'] ) ) ? $block_fields['expand_testiminials_opt'] : null;
 ?>
+<div id="<?php echo $id; ?>" class="<?php echo $align_class . ' ' . $class_name. ' ' . $name; ?> glide-block-<?php echo $block_glide_name; ?>">
 
-<section id="respond">
-	<div id="comments" class="comments-area">
+             <section class="testimonial-block">
+                <div class="bg-image">
+                    <img src="<?php echo $step_testimonials_bakcground_image;?>" alt="Image Description">
+                </div>
+                <div class="container">
+                    <div class="testimonial-head">
+                        <h2><?php echo html_entity_decode($step_tg_title);?></h2>
+                    </div>
+                    <div class="testimonialSlider">
+						<?php
+						foreach($expand_testiminials_opt as $row){
+						?>
+                        <div class="slick-slide">
+                            <blockquote class="testimonial-box">
+                                <div class="title-info">
+                                    <div class="user-image"><img src="<?php echo  $row['step_testimonials_eo_pic'];?>" alt="<?php echo  $row['step_testimonials_ep_name'];?>"></div>
+                                    <div class="profile-info">
+                                        <h3><?php echo  $row['step_testimonials_ep_name'];?></h3>
+                                        <h5><?php echo  $row['step_eo_testimonial_position'];?></h5>
+                                        <span class="tag"><?php echo  $row['step_testi_ponial_ep_degree'];?></span>
+                                    </div>
+                                </div>
+                                <q>
+                                    <?php echo  $row['step_ep_testimonials_description'];?>
+                                </q>
+                            </blockquote>
+                        </div>
+						<?php
+						}
+						?>	
+                    </div>
+                </div>
+            </section>
 
-		<?php
-		// Only show  when comments are available.
-		if ( have_comments() ) {
-			?>
-		<h3 class="section-title" id="comments">
-			<?php
-				$theme_comment_count = get_comments_number();
-			if ( '1' === $theme_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					__( 'One Responce', 'step_td' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s Responce', '%1$s Responces', $theme_comment_count, 'comments title', 'step_td' ) ),
-					number_format_i18n( $theme_comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h3>
-		<div class="navigation">
-			<?php the_comments_navigation(); ?>
-		</div>
-		<ol class="commentlist">
-
-			<?php
-				wp_list_comments(
-					array(
-						'style'       => 'ol',
-						'short_ping'  => true,
-						'avatar_size' => 60,
-					)
-				);
-			?>
-
-		</ol>
-		<div class="navigation">
-			<?php the_comments_navigation(); ?>
-		</div>
-		<?php } else { // this is displayed if there are no comments so far ?>
-
-			<?php
-			// If comments are closed and there are comments, let's leave a little note, shall we?
-			if ( ! comments_open() ) {
-				?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'step_td' ); ?></p>
-				<?php
-			}
-		}// Check for have_comments().
-			comment_form();
-		?>
-
-	</div><!-- #comments -->
-</section>
+</div>

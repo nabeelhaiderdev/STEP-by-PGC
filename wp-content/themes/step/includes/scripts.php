@@ -54,7 +54,10 @@ function glide_assets() {
 	wp_enqueue_script( 'jquery' );
 
 	// Register project scripts
-	wp_register_script( 'glide-theme-scripts', assetDir . '/js/bundle.min.js?v=' . ASSET_VERSION_JS, array( 'jquery' ), null, false );
+	// wp_register_script( 'glide-theme-scripts', assetDir . '/js/bundle.min.js?v=' . ASSET_VERSION_JS, array( 'jquery' ), null, false );
+	wp_register_script( 'jquery-threesix', assetDir . '/js/html-js/jquery-3.6.1.min.js?v=' . ASSET_VERSION_JS, array( 'jquery' ), null, false );
+	wp_register_script( 'fanxybox', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array( 'jquery' ), null, false );
+	wp_register_script( 'jquery-main', assetDir . '/js/html-js/jquery.main.js?v=' . ASSET_VERSION_JS, array( 'jquery' ), null, false );
 
 	if ( is_page_template( 'templates/template-home.php' ) ) {
 		wp_enqueue_script( 'owl-carousel-js', get_template_directory_uri() . '/assets/js/vendor/owl.carousel.js', '1.0.0', true );
@@ -78,6 +81,9 @@ function glide_assets() {
 
 	// Enqueue project scripts
 	wp_enqueue_script( 'glide-theme-scripts' );
+	wp_enqueue_script( 'jquery-threesix' );
+	wp_enqueue_script( 'fanxybox' );
+	wp_enqueue_script( 'jquery-main' );
 
 }
 

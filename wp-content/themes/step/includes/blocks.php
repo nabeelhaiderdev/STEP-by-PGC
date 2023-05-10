@@ -452,7 +452,10 @@ function glide_theme_acf_init() {
 			)
 		);
 
-		// Register a block Video
+
+	}
+}
+// Register a block Video
 		acf_register_block(
 			array(
 				'name'            => 'video',
@@ -601,5 +604,3 @@ function glide_theme_acf_init() {
 				// ),
 			)
 		);
-
-	}

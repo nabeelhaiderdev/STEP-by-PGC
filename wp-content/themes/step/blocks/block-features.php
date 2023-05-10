@@ -85,7 +85,7 @@ $step_tblk_ftr_media_type = ( isset( $block_fields['step_tblk_ftr_media_type'] )
                         </div>
                         <div class="col-block-6 center-img">
                             <div class="image-holder">
-                                <img src="<?php echo $step_tblk_ftr_image; ?>" alt="<?php echo $step_tblk_ftr_title; ?>">
+                                <img data="test" src="<?php echo $step_tblk_ftr_image; ?>" alt="<?php echo $step_tblk_ftr_title; ?>">
                             </div>
                         </div>
                     </div>
@@ -139,8 +139,8 @@ $step_tblk_ftr_media_type = ( isset( $block_fields['step_tblk_ftr_media_type'] )
 						<div class="container">
 							<div class="row-block align-center">
 								<div class="col-block-6">
-									<h2><?php echo $step_tblk_ftr_title; ?></h2>
-									<h4><?php echo $step_tblk_ftr_video_subtitle; ?></h4>
+									<?php if($step_tblk_ftr_title) {?><h2><?php echo $step_tblk_ftr_title; ?></h2> <?php }?>
+									<?php if( $step_tblk_ftr_video_subtitle) {?><h4><?php echo $step_tblk_ftr_video_subtitle; ?></h4> <?php }?>
 									<?php 
 										if($step_tblk_ftr_detail){
 											echo $step_tblk_ftr_detail;

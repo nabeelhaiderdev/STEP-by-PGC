@@ -57,13 +57,19 @@ if ( $step_schema_check ) {
 }
 // Custom - ACF variables.
 
-$step_ftrop_title     = ( isset( $option_fields['step_ftrop_title'] ) ) ? $option_fields['step_ftrop_title'] : null;
-$step_ftrop_text      = (isset($option_fields['step_ftrop_text'])) ? html_entity_decode( $option_fields['step_ftrop_text'] ):"";
-$step_ftrop_copyright = (isset($option_fields['step_ftrop_copyright'])) ? html_entity_decode( $option_fields['step_ftrop_copyright'] ) : "";
+
+$step_ftrop_copyright       = ( isset( $option_fields['step_ftrop_copyright'] ) ) ? $option_fields['step_ftrop_copyright'] : null;
+$step_ftrop_help_line       = ( isset( $option_fields['step_ftrop_help_line'] ) ) ? $option_fields['step_ftrop_help_line'] : null;
+$step_ftrop_location       = ( isset( $option_fields['step_ftrop_location'] ) ) ? $option_fields['step_ftrop_location'] : null;
+$step_ftrop_title       = ( isset( $option_fields['step_ftrop_title'] ) ) ? $option_fields['step_ftrop_title'] : null;
 $step_social_fb       = ( isset( $option_fields['step_social_fb'] ) ) ? $option_fields['step_social_fb'] : null;
 $step_social_tw       = ( isset( $option_fields['step_social_tw'] ) ) ? $option_fields['step_social_tw'] : null;
 $step_social_li       = ( isset( $option_fields['step_social_li'] ) ) ? $option_fields['step_social_li'] : null;
 $step_social_in       = ( isset( $option_fields['step_social_in'] ) ) ? $option_fields['step_social_in'] : null;
+$step_ftrop_title     = ( isset( $option_fields['step_ftrop_title'] ) ) ? $option_fields['step_ftrop_title'] : null;
+$step_ftrop_text      = (isset($option_fields['step_ftrop_text'])) ? html_entity_decode( $option_fields['step_ftrop_text'] ):"";
+$step_ftrop_copyright = (isset($option_fields['step_ftrop_copyright'])) ? html_entity_decode( $option_fields['step_ftrop_copyright'] ) : "";
+
 
 ?>
  <?php get_template_part( 'partials/cta' ); ?> </main>
@@ -90,33 +96,34 @@ $step_social_in       = ( isset( $option_fields['step_social_in'] ) ) ? $option_
             <div class="sec-footer">
                 <div class="container">
                     <div class="theme-info">
-                        <p>STEP- The Largest Entry
-                            Test Preparation Network in Pakistan- offers entry test preparatory courses</p>
+                        <p><?php echo html_entity_decode($step_ftrop_title); ?></p>
                     </div>
                     <div class="columns-holder">
+						
                         <ul class="social-links">
-                            <li><a href="#" target="_blank">Facebook</a></li>
-                            <li><a href="#" target="_blank">Instagram</a></li>
-                            <li><a href="#" target="_blank">Twitter</a></li>
-                            <li><a href="#" target="_blank">linkedin</a></li>
+                            <li><a href="<?php echo $step_social_fb; ?>" target="_blank">Facebook</a></li>
+                            <li><a href="<?php echo $step_social_in; ?>" target="_blank">Instagram</a></li>
+                            <li><a href="<?php echo $step_social_tw; ?>" target="_blank">Twitter</a></li>
+                            <li><a href="<?php echo $step_social_li; ?>" target="_blank">linkedin</a></li>
                         </ul>
                         <div class="usefull-links">
                             <strong class="title">Useful Links</strong>
                             <div class="links-wrap">
-                                <ul>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Our Pricing</a></li>
-                                    <li><a href="#">Latest News</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#">FAQ's</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Condition</a></li>
-                                    <li><a href="#">Community</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                </ul>
+								<?php 
+						wp_nav_menu( array(
+      'theme_location' => 'footer-nav-one',
+      'menu_class' => '',
+	   'container' => false
+    ) );
+						?>
+                                
+                                <?php 
+						wp_nav_menu( array(
+      'theme_location' => 'footer-nav-two',
+      'menu_class' => '',
+	   'container' => false
+    ) );
+						?>
                             </div>
                         </div>
                         <div class="contact-column">
@@ -124,11 +131,11 @@ $step_social_in       = ( isset( $option_fields['step_social_in'] ) ) ? $option_
                             <ul class="contact-info">
                                 <li>
                                     <strong class="subtitle">Helpline</strong>
-                                    <a href="tel=080078608" class="number">0800-78608</a>
+                                    <a href="tel=<?php echo $step_ftrop_help_line; ?>" class="number"><?php echo $step_ftrop_help_line; ?></a>
                                 </li>
                                 <li>
                                     <strong class="subtitle">Location</strong>
-                                    <span class="text">123-C, Block E1, Gulberg, III Lahore</span>
+                                    <span class="text"><?php echo $step_ftrop_location; ?></span>
                                 </li>
                             </ul>
                         </div>
@@ -137,7 +144,7 @@ $step_social_in       = ( isset( $option_fields['step_social_in'] ) ) ? $option_
             </div>
             <div class="footer-copyrights">
                 <div class="container">
-                    <p>Copyright © Step by PGC</p>
+                    <p><?php echo $step_ftrop_copyright; ?></p>
                 </div>
             </div>
 	<!-- Footer End --> 
@@ -171,10 +178,3 @@ $step_social_in       = ( isset( $option_fields['step_social_in'] ) ) ? $option_
 		"priceRange": "<?php echo $step_schema_price_range; ?>"
 	}
 	</script> <?php } ?>
-</footer> <?php wp_footer(); ?> <?php
-if ( $footer_scripts != '' ) {
-	?>
-	 <div style="display: none;">
-	<?php echo html_entity_decode( $footer_scripts, ENT_QUOTES ); ?> </div> <?php } ?> </body>
-
-</html>
